@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>	</title>
+</head>
+<body>
+	<div class="container">	
+		<canvas id="mychart"></canvas>
+	</div>
+
+	<div class="container">
+		<canvas id="bar-chart"></canvas>
+		</div>
+		<style>	
+			/*	body {
+					background: black;
+				}*/
+
+				#mychart{
+					overflow-x: scroll;
+				}
+		</style>
+	<script>	
+
+
+
+			let mychart = document.getElementById('mychart').getContext('2d');
+			// let myChart = document.getElementById('Mychart').getContext('2d');
+			// Global Option
+			Chart.defaults.global.defaultFontFamily="Lato";
+			Chart.defaults.global.defaultFontColor="#000";
+			Chart.defaults.global.defaultFontSize=10;
+
+				
+			let myPopChart = new Chart(mychart , {
+				type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+				
+				data: {
+					labels: ['New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','New York','Los Angeles','Chicago','Houston','	Phoenix','Philadelphia','teteven','ispania','dolan mahala'],
+					datasets: [{
+						label: 'Population',
+						data: [
+								7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,7.580,
+								6.580,
+								5.580,3.580,8.580,7.125,
+
+						],
+						backgroundColor:'green'
+					}]
+				},
+				options: {
+					responsive: true,
+           
+						title: {
+							display: true,
+							text: 'Largest cities in Massachusetts',
+							fontSize:25
+						},
+						legend: {
+							position: 'bottom',
+							labels: {
+								fontColor:'#000'
+							}
+						},
+						scales: {
+								xAxes: [{
+									ticks: {
+										autoSkip: true,
+										 maxTicksLimit: 10
+                    					
+									}
+								}]
+						}
+				}
+			})
+
+
+
+var barChartData = {
+  labels: [ "2013-03-09", "2013-03-16", "2013-03-23", "2013-03-30", "2013-04-06", "2013-04-13", "2013-04-20", "2013-04-27", "2013-05-04", "2013-05-11", "2013-05-18", "2013-05-25", "2013-06-01", "2013-06-08", "2013-06-15", "2013-06-22", "2013-06-29", "2013-07-06", "2013-07-13", "2013-07-20", "2013-07-27", "2013-08-03", "2013-08-10", "2013-08-17", "2013-08-24", "2013-08-31", "2013-09-07", "2013-09-14", "2013-09-21", "2013-09-28", "2013-10-05", "2013-10-12", "2013-10-19", "2013-10-26", "2013-11-02", "2013-11-09", "2013-11-16", "2013-11-23", "2013-11-30", "2013-12-07", "2013-12-14", "2013-12-21", "2013-12-28", "2014-01-04", "2014-01-11", "2014-01-18", "2014-01-25", "2014-02-01", "2014-02-08", "2014-02-15", "2014-02-22", "2014-03-01", "2014-03-08", "2014-03-15", "2014-03-22", "2014-03-29", "2014-04-05", "2014-04-12", "2014-04-19", "2014-04-26", "2014-05-03", "2014-05-10", "2014-05-17", "2014-05-24", "2014-05-31", "2014-06-07", "2014-06-14", "2014-06-21", "2014-06-28", "2014-07-05", "2014-07-12", "2014-07-19", "2014-07-26", "2014-08-02", "2014-08-09", "2014-08-16", "2014-08-23", "2014-08-30", "2014-09-06", "2014-09-13", "2014-09-20", "2014-09-27", "2014-10-04", "2014-10-11", "2014-10-18", "2014-10-25", "2014-11-01", "2014-11-08", "2014-11-15", "2014-11-22", "2014-11-29", "2014-12-06", "2014-12-13", "2014-12-20", "2014-12-27", "2015-01-03", "2015-01-10", "2015-01-17", "2015-01-24", "2015-01-31", "2015-02-07", "2015-02-14", "2015-02-21", "2015-02-28", "2015-03-07", "2015-03-14", "2015-03-21", "2015-03-28", "2015-04-04", "2015-04-11", "2015-04-18", "2015-04-25", "2015-05-02", "2015-05-09", "2015-05-16", "2015-05-23", "2015-05-30", "2015-06-06", "2015-06-13", "2015-06-20", "2015-06-27", "2015-07-04", "2015-07-11", "2015-07-18", "2015-07-25", "2015-08-01", "2015-08-08", "2015-08-15", "2015-08-22", "2015-08-29", "2015-09-05", "2015-09-12", "2015-09-19", "2015-09-26", "2015-10-03", "2015-10-10", "2015-10-17", "2015-10-24", "2015-10-31", "2015-11-07", "2015-11-14", "2015-11-21", "2015-11-28", "2015-12-05", "2015-12-12", "2015-12-19", "2015-12-26", "2016-01-09", "2016-01-16", "2016-01-23", "2016-01-30", "2016-02-06", "2016-02-13", "2016-02-20", "2016-02-27", "2016-03-05", "2016-03-12", "2016-03-19", "2016-03-26", "2016-04-02", "2016-04-09", "2016-04-16", "2016-04-23", "2016-04-30", "2016-05-07", "2016-05-14", "2016-05-21", "2016-05-28", "2016-06-04", "2016-06-11", "2016-06-18", "2016-06-25", "2016-07-02", "2016-07-09", "2016-07-16", "2016-07-23", "2016-07-30", "2016-08-06", "2016-08-13", "2016-08-20", "2016-08-27", "2016-09-03", "2016-09-10", "2016-09-17", "2016-09-24", "2016-10-01", "2016-10-08", "2016-10-15", "2016-10-22", "2016-10-29", "2016-11-05", "2016-11-12", "2016-11-19", "2016-11-26", "2016-12-03", "2016-12-10", "2016-12-17", "2016-12-24", "2016-12-31", "2017-01-07", "2017-01-14", "2017-01-21", "2017-01-28", "2017-02-04", "2017-02-11", "2017-02-18", "2017-02-25", "2017-03-04", "2017-03-11", "2017-03-18", "2017-03-25", "2017-04-01", "2017-04-08", "2017-04-15", "2017-04-22", "2017-04-29", "2017-05-06", "2017-05-13", "2017-05-20", "2017-05-27" ],
+  datasets: [{
+    label: "Price",
+    backgroundColor: "#3e95cd", // TODO: This shouldn't be here
+    data: [ 10943, 29649, 6444, 2330, 36694, 9297, 8607, 3887, 23993, 2647, 10001, 1149, 1296, 3320, 31497, 3757, 21716, 7086, 4203, 10562, 8430, 107993, 15032, 80530, 12958, 55983, 56384, 39185, 111948, 78138, 48322, 22660, 45480, 44777, 51113, 80258, 122211, 170381, 142371, 121994, 111613, 90620, 414241, 233104, 124646, 208010, 178940, 141989, 94830, 120570, 159167, 72944, 148603, 175114, 182187, 151873, 197688, 182179, 162077, 127031, 156561, 160966, 169199, 270254, 260158, 297746, 271142, 329733, 295551, 291945, 281950, 265127, 351294, 261921, 391134, 389332, 435469, 367964, 367341, 434032, 610022, 547923, 470847, 509486, 630442, 516610, 354353, 258937, 342483, 441928, 461255, 502212, 537813, 438127, 333128, 508545, 637057, 786012, 862370, 753361, 746796, 802081, 953917, 987033, 909113, 844113, 737956, 701093, 817762, 737104, 926359, 1010303, 1019052, 999567, 883027, 1105711, 954929, 1056932, 979701, 1238064, 1298420, 976489, 1093544, 1299362, 1207673, 1005359, 1070534, 1039265, 1214629, 1153509, 1206815, 1029551, 1271941, 1378490, 1224951, 1264126, 1298636, 1627311, 1988087, 1213970, 1194402, 1616617, 1349672, 1689407, 1544482, 1453755, 1090021, 1263850, 1558628, 1485323, 2213783, 1737821, 1737132, 1612459, 1921402, 2146584, 1716372, 1625193, 1726418, 2092217, 1740689, 1778557, 1743900, 2511451, 2095225, 1906606, 2072093, 2271353, 2306996, 2052930, 2522264, 2318002, 2179580, 1929402, 2058817, 1919322, 2422068, 1886848, 1814088, 1831842, 2479928, 2651487, 1993542, 1866201, 2008784, 2348564, 2362529, 1953613, 1914884, 2716617, 2312342, 2128274, 2212512, 2194987, 2497429, 2312411, 2150084, 2937512, 2700244, 3056859, 2504414, 3588714, 2845134, 2477167, 2181928, 2147184, 2891877, 3350764, 3046479, 2675718, 2517153, 3072400, 3334467, 2314341, 2460462, 3509803, 3083554, 3408975, 2883753, 5736703 ]
+  }]
+};
+
+Chart.defaults.global.defaultFontFamily = "'Comic Sans MS'";
+
+var ctx = document.getElementById("bar-chart").getContext("2d");
+new Chart(ctx, {
+  type: 'line',
+  data: barChartData,
+  options: {
+    responsive: true,
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Bar Chart'
+    },
+    scales: {
+      xAxes: [{
+        ticks: {
+          // Make labels vertical
+          // https://stackoverflow.com/questions/28031873/make-x-label-horizontal-in-chartjs
+          minRotation: 90,
+
+          // Limit number of labels
+          // https://stackoverflow.com/questions/22064577/limit-labels-number-on-chartjs-line-chart
+          autoSkip: true,
+          maxTicksLimit: 10
+        }
+      }]
+    }
+  }
+});
+
+	</script>
+</body>
+</html>
