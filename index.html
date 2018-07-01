@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -13,6 +13,10 @@
 
 	<div class="container">
 		<canvas id="bar-chart"></canvas>
+		</div>
+
+		<div class="container">
+			<canvas id="chart"></canvas>
 		</div>
 		<style>	
 			/*	body {
@@ -32,8 +36,7 @@
 			// Global Option
 			Chart.defaults.global.defaultFontFamily="Lato";
 			Chart.defaults.global.defaultFontColor="#000";
-			Chart.defaults.global.defaultFontSize=10;
-
+			Chart.defaults.global.defa
 				
 			let myPopChart = new Chart(mychart , {
 				type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
@@ -175,13 +178,130 @@ new Chart(ctx, {
           // Limit number of labels
           // https://stackoverflow.com/questions/22064577/limit-labels-number-on-chartjs-line-chart
           autoSkip: true,
-          maxTicksLimit: 10
+          maxTicksLimit: 40
         }
       }]
     }
   }
 });
 
+let MyChart = document.getElementById('chart').getContext('2d');
+
+let MyCharts = new Chart(MyChart, {
+    type: 'line',
+    data: {
+        datasets: [{
+            data: [20, 50, 100, 75, 25, 0],
+            label: 'Left dataset',
+
+            // This binds the dataset to the left y axis
+            yAxisID: 'left-y-axis'
+        }, {
+            data: [0.1, 0.5, 1.0, 2.0, 1.5, 0],
+            label: 'Right dataset',
+
+            // This binds the dataset to the right y axis
+            yAxisID: 'right-y-axis',
+        }],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                id: 'left-y-axis',
+                type: 'linear',
+                position: 'left'
+            }, {
+                id: 'right-y-axis',
+                type: 'linear',
+                position: 'right'
+            }]
+        }
+    }
+});
+
 	</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+	<?php
+
+$begin = new DateTime( '2012-08-01' );
+$end = new DateTime( '2012-08-31' );
+$end = $end->modify( '+1 day' ); 
+
+$interval = new DateInterval('P1D');
+$daterange = new DatePeriod($begin, $interval ,$end);
+
+foreach($daterange as $date){
+    echo $date->format("Ymd") . "<br>";
+}
+?>
+
+<script>
+	
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3]
+        },
+        {
+            label: '# of Votes',
+            data: [1, 29, 4, 5, 7, 8]
+        }
+        
+    ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+var arr = ["R", "B", "Y", "G", "P", "Orange"]
+var arrData = [2, 1, 6, 3, 12, 13]
+myChart.data.datasets[0].data[2] = 30;
+	myChart.update();
+	 // data.datasets.forEach((dataset, i) => chart.data.datasets[i].data = dataset.data);
+	// myChart.data.labels.foerEach((value, i) => console.log(value) );
+	for(let i of myChart.data.labels){
+		for(let d of arr){
+			if(i === d){
+				for(data in arrData){
+					if(myChart.data.labels[i] === data){
+
+					}
+				}
+				console.log(i + " = " + d);
+				// console.log(myChart.data.datasets[i].data);
+			}
+		}	
+	
+	// console.log(myChart.data.labels);
+	 }
+	// console.log(myChart.data.datasets[0].data);
+	console.log(myChart.data.datasets[1].data);
+	 console.log(myChart.datasetIndex);
+</script>
 </body>
 </html>
